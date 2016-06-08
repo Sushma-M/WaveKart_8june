@@ -14,14 +14,14 @@
         <parameter name="LoggedinUserID" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="eshopping_OrderedListsrtnType" isList="false"/>
     </operation>
+    <operation operationType="nativequery" name="_Total_InCart">
+        <parameter name="LoggedinUserID" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="eshopping_Total_InCartrtnType" isList="false"/>
+    </operation>
     <operation operationType="nativequery" name="_Total_Price">
         <parameter name="data" typeRef="java.lang.String" isList="false"/>
         <parameter name="user" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="eshopping_Total_PricertnType" isList="false"/>
-    </operation>
-    <operation operationType="nativequery" name="_Total_InCart">
-        <parameter name="LoggedinUserID" typeRef="java.lang.Integer" isList="false"/>
-        <return typeRef="eshopping_Total_InCartrtnType" isList="false"/>
     </operation>
     <dataobjects>
         <dataobject javaType="com.wavemaker.sampleapps.wavekart.eshopping.User">
@@ -47,12 +47,6 @@
             <element name="quantity" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="user" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.User" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.wavemaker.sampleapps.wavekart.eshopping.Productorder">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="orderdetails" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.Orderdetail" isList="true" allowNull="true"/>
-            <element name="status" typeRef="java.lang.String" allowNull="true"/>
-            <element name="user" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.User" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.wavemaker.sampleapps.wavekart.eshopping.Product">
             <element name="imgUrl" typeRef="java.lang.String" allowNull="true"/>
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
@@ -63,6 +57,12 @@
             <element name="name" typeRef="java.lang.String" allowNull="true"/>
             <element name="itemorders" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.Itemorder" isList="true" allowNull="true"/>
             <element name="availability" typeRef="java.lang.Boolean" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.sampleapps.wavekart.eshopping.Productorder">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="orderdetails" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.Orderdetail" isList="true" allowNull="true"/>
+            <element name="status" typeRef="java.lang.String" allowNull="true"/>
+            <element name="user" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.User" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.wavemaker.sampleapps.wavekart.eshopping.Orderdetail">
             <element name="product" typeRef="com.wavemaker.sampleapps.wavekart.eshopping.Product" allowNull="true"/>
@@ -80,11 +80,11 @@
             <element name="QUANTITY" typeRef="java.lang.Integer"/>
             <element name="PROD_IMG" typeRef="java.lang.String"/>
         </dataobject>
-        <dataobject javaType="eshopping_Total_PricertnType">
-            <element name="C1" typeRef="java.lang.String"/>
-        </dataobject>
         <dataobject javaType="eshopping_Total_InCartrtnType">
             <element name="TOTAL" typeRef="java.math.BigInteger"/>
+        </dataobject>
+        <dataobject javaType="eshopping_Total_PricertnType">
+            <element name="C1" typeRef="java.lang.String"/>
         </dataobject>
     </dataobjects>
 </service>

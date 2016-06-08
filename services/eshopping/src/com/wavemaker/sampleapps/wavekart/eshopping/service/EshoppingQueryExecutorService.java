@@ -1,7 +1,3 @@
-/*Copyright (c) 2015-2016 WaveMaker.com All Rights Reserved.
- This software is the confidential and proprietary information of WaveMaker.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with WaveMaker.com*/
-
 
 package com.wavemaker.sampleapps.wavekart.eshopping.service;
 
@@ -19,8 +15,8 @@ public interface EshoppingQueryExecutorService {
 	int executeOrdered(  java.lang.String data , java.lang.String data2) throws QueryParameterMismatchException;
 	int executeCancelled(  java.lang.String data , java.lang.Integer data1) throws QueryParameterMismatchException;
     Page<Object> execute_OrderedLists(Pageable pageable, java.lang.Integer LoggedinUserID) throws QueryParameterMismatchException;
-    Page<Object> execute_Total_Price(Pageable pageable, java.lang.String data, java.lang.Integer user) throws QueryParameterMismatchException;
     Page<Object> execute_Total_InCart(Pageable pageable, java.lang.Integer LoggedinUserID) throws QueryParameterMismatchException;
+    Page<Object> execute_Total_Price(Pageable pageable, java.lang.String data, java.lang.Integer user) throws QueryParameterMismatchException;
 
 	
 	Page<Object> executeWMCustomQuerySelect(CustomQuery query, Pageable pageable) ;

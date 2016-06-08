@@ -1,7 +1,6 @@
 Application.$controller("MainPageController", ["$scope", '$location', function($scope, $location) {
     "use strict";
 
-    console.log($scope.Variables);
 
     /* perform any action with the variables inside this block(on-page-load) */
     $scope.onPageVariablesReady = function() {

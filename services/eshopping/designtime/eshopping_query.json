@@ -49,7 +49,7 @@
       "systemParam" : false,
       "list" : false
     } ],
-    "outputType" : null,
+    "outputType" : "eshoppingcancelledrtnType",
     "returnTypeMetadata" : { }
   }, {
     "name" : "_OrderedLists",
@@ -67,7 +67,7 @@
       "systemParam" : false,
       "list" : false
     } ],
-    "outputType" : null,
+    "outputType" : "eshopping_OrderedListsrtnType",
     "returnTypeMetadata" : {
       "NAME" : "java.lang.String",
       "PID" : "java.lang.Integer",
@@ -77,8 +77,28 @@
       "PROD_IMG" : "java.lang.String"
     }
   }, {
+    "name" : "_Total_InCart",
+    "query" : "select count(status) as total from Itemorder i where status= 'In Cart' and i.USER_ID=:LoggedinUserID",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "LoggedinUserID",
+      "paramType" : "java.lang.Integer",
+      "testValue" : "16",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "eshopping_Total_InCartrtnType",
+    "returnTypeMetadata" : {
+      "TOTAL" : "java.math.BigInteger"
+    }
+  }, {
     "name" : "_Total_Price",
-    "query" : "select sum(p.PRICE) from PRODUCT P,ITEMORDER I where P.ID=I.PRODUCT_ID and status=:data and user =:user",
+    "query" : "select sum(p.PRICE) from PRODUCT P,ITEMORDER I where P.ID=I.PRODUCT_ID and I.STATUS=:data and I.USER_ID =:user",
     "comment" : "",
     "description" : null,
     "nativeSql" : true,
@@ -99,29 +119,9 @@
       "systemParam" : false,
       "list" : false
     } ],
-    "outputType" : null,
+    "outputType" : "eshopping_Total_PricertnType",
     "returnTypeMetadata" : {
       "C1" : "java.lang.String"
-    }
-  }, {
-    "name" : "_Total_InCart",
-    "query" : "select count(status) as total from Itemorder i where status= 'In Cart' and i.USER_ID=:LoggedinUserID",
-    "comment" : "",
-    "description" : null,
-    "nativeSql" : true,
-    "returnsSingleResult" : false,
-    "update" : false,
-    "queryParams" : [ {
-      "paramName" : "LoggedinUserID",
-      "paramType" : "java.lang.Integer",
-      "testValue" : "16",
-      "systemParamName" : null,
-      "systemParam" : false,
-      "list" : false
-    } ],
-    "outputType" : null,
-    "returnTypeMetadata" : {
-      "TOTAL" : "java.math.BigInteger"
     }
   } ]
 }

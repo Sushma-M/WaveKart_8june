@@ -1,7 +1,3 @@
-/*Copyright (c) 2015-2016 WaveMaker.com All Rights Reserved.
- This software is the confidential and proprietary information of WaveMaker.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with WaveMaker.com*/
-
 
 package com.wavemaker.sampleapps.wavekart.eshopping.service;
 
@@ -61,20 +57,20 @@ public class EshoppingQueryExecutorServiceImpl implements EshoppingQueryExecutor
 	}
 	@Transactional(value = "eshoppingTransactionManager")
 	@Override
+	public Page<Object> execute_Total_InCart(Pageable pageable, java.lang.Integer LoggedinUserID)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("LoggedinUserID", LoggedinUserID);
+        return queryExecutor.executeNamedQuery("_Total_InCart", params, pageable);
+	}
+	@Transactional(value = "eshoppingTransactionManager")
+	@Override
 	public Page<Object> execute_Total_Price(Pageable pageable, java.lang.String data, java.lang.Integer user)
 	throws QueryParameterMismatchException{
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("data", data);
         params.put("user", user);
         return queryExecutor.executeNamedQuery("_Total_Price", params, pageable);
-	}
-	@Transactional(value = "eshoppingTransactionManager")
-	@Override
-	public Page<Object> execute_Total_InCart(Pageable pageable, java.lang.Integer LoggedinUserID)
-	throws QueryParameterMismatchException{
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("LoggedinUserID", LoggedinUserID);
-        return queryExecutor.executeNamedQuery("_Total_InCart", params, pageable);
 	}
 
 	@Transactional(value = "eshoppingTransactionManager")
